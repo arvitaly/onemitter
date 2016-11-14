@@ -1,0 +1,21 @@
+{
+  "name": "onemitter",
+  "version": "0.0.1",
+  "description": "Most elementary emitter for one event",
+  "typings": "typings.d.ts",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arvitaly/onemitter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arvitaly/onemitter/issues"
+  },
+  "homepage": "https://github.com/arvitaly/onemitter#readme"
+}
