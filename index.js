@@ -1,7 +1,7 @@
 var onemitter = function () {
     var value = undefined;
     var listeners = [];
-    return function (cb) {
+    var Onemitter = function (cb) {
         if (typeof (cb) === "function") {
             listeners.push(cb);
             return function () {
@@ -15,6 +15,11 @@ var onemitter = function () {
             });
         }
     }
+    Onemitter.isOnemitter = function(){
+        return true;
+    }
+    return Onemitter;
 }
+
 onemitter.default = onemitter;
 module.exports = onemitter;

@@ -1,6 +1,6 @@
 {
   "name": "onemitter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Most elementary emitter for one event",
   "typings": "typings.d.ts",
   "main": "index.js",
