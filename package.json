@@ -1,11 +1,12 @@
 {
   "name": "onemitter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Most elementary emitter for one event",
   "typings": "typings.d.ts",
   "main": "index.js",
   "scripts": {
-    "test": "node test"
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js",
+    "watch:test": "nodemon --exec \"npm run test\""
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/arvitaly/onemitter/issues"
   },
-  "homepage": "https://github.com/arvitaly/onemitter#readme"
+  "homepage": "https://github.com/arvitaly/onemitter#readme",
+  "devDependencies": {
+    "coveralls": "^2.11.15",
+    "istanbul": "^0.4.5",
+    "jasmine": "2.4.1"
+  }
 }

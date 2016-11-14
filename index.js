@@ -1,12 +1,11 @@
 var onemitter = function () {
-    var value = undefined;
     var listeners = [];
     var Onemitter = function (cb) {
         if (typeof (cb) === "function") {
             listeners.push(cb);
             return function () {
                 listeners = listeners.filter(function (l) {
-                    return l === cb;
+                    return l !== cb;
                 })
             }
         } else {
@@ -15,9 +14,7 @@ var onemitter = function () {
             });
         }
     }
-    Onemitter.isOnemitter = function(){
-        return true;
-    }
+    Onemitter.isOnemitter = true;
     return Onemitter;
 }
 
