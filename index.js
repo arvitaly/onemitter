@@ -1,22 +1,26 @@
-var onemitter = function () {
-    var listeners = [];
-    var Onemitter = function (cb) {
-        if (typeof (cb) === "function") {
-            listeners.push(cb);
-            return function () {
-                listeners = listeners.filter(function (l) {
-                    return l !== cb;
-                })
-            }
-        } else {
-            listeners.map(function (l) {
-                l(cb);
-            });
-        }
+"use strict";
+class Onemitter {
+    constructor() {
+        this.listeners = [];
     }
-    Onemitter.isOnemitter = true;
-    return Onemitter;
+    emit(value) {
+        this.listeners.map((cb) => cb(value));
+    }
+    on(cb) {
+        this.listeners.push(cb);
+    }
+    off(cb) {
+        this.listeners = this.listeners.filter((c) => c !== cb);
+    }
+    addListener(cb) {
+        this.on(cb);
+    }
+    removeAllListeners() {
+        this.listeners = [];
+    }
 }
-
-onemitter.default = onemitter;
-module.exports = onemitter;
+exports.Onemitter = Onemitter;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = () => {
+    return new Onemitter();
+};

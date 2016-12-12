@@ -1,44 +1,32 @@
 # onemitter
+
 Most elementary emitter for one event
 
-[![Build Status](https://travis-ci.org/arvitaly/onemitter.svg?branch=master)](https://travis-ci.org/arvitaly/onemitter)
-[![npm version](https://badge.fury.io/js/onemitter.svg)](https://badge.fury.io/js/onemitter)
-[![Coverage Status](https://coveralls.io/repos/github/arvitaly/onemitter/badge.svg?branch=master)](https://coveralls.io/github/arvitaly/onemitter?branch=master)
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
 # Install
 
-    npm install --save onemitter
+    npm install onemitter --save
 
 # Usage
 
-    const onemitter = require('onemitter'); //commonjs
-    //or
-    import onemitter from 'onemitter'; //es6 or typescript
 
-    //JavaScript
-    const o1 = onemitter();
-    //typescript
-    const o1 = onemitter<string>();
-    //Check var is onemitter
-    console.log(o1.isOnemitter === true);
-    //subscribe
-    const dispose = o1((value)=>{
-        console.log(value);
-    })
-    //publish
-    o1("value1");
-    o1("value2");
-    //unsubscribe
-    dispose();
-    o1("value3");
-    //Results
-    //value1
-    //value2
 
-# Typings
+# API
 
-    type subscribe <T> = (cb: (data: T) => any) => () => void;
-    type publish<T> = (value: T) => void;
-    export type IOneEmitter<T> = subscribe<T> & publish<T> & { isOnemitter: boolean };
-    declare function onemitter<T>(): IOneEmitter<T>;
-    export default onemitter; 
+
+
+# Test
+
+    npm install
+    npm test
+
+[npm-image]: https://badge.fury.io/js/onemitter.svg
+[npm-url]: https://npmjs.org/package/onemitter
+[travis-image]: https://travis-ci.org/arvitaly/onemitter.svg?branch=master
+[travis-url]: https://travis-ci.org/arvitaly/onemitter
+[daviddm-image]: https://david-dm.org/arvitaly/onemitter.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/arvitaly/onemitter
+[coveralls-image]: https://coveralls.io/repos/arvitaly/onemitter/badge.svg
+[coveralls-url]: https://coveralls.io/r/arvitaly/onemitter

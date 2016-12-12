@@ -5,8 +5,8 @@
   "typings": "typings.d.ts",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js",
-    "watch:test": "nodemon --exec \"npm run test\""
+    "test": "tsc && tslint --project=tsconfig.json && jest --verbose",
+    "watch:test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,13 @@
   },
   "homepage": "https://github.com/arvitaly/onemitter#readme",
   "devDependencies": {
+    "@types/jest": "^16.0.1",
     "coveralls": "^2.11.15",
-    "istanbul": "^0.4.5",
-    "jasmine": "2.4.1"
+    "jest": "^17.0.3",
+    "tslint": "^4.0.2",
+    "typescript": "^2.1.4"
+  },
+  "jest": {
+    "automock": false
   }
 }
