@@ -29,4 +29,12 @@ describe("Onemitter spec", () => {
         o1.emit("test4");
         expect(cb.mock.calls.length).toBe(1);
     });
+    it("wait", (done) => {
+        const o1 = __1.default();
+        o1.wait().then((data) => {
+            expect(data).toBe("test15");
+            done();
+        });
+        o1.emit("test15");
+    });
 });

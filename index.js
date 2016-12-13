@@ -18,6 +18,17 @@ class Onemitter {
     removeAllListeners() {
         this.listeners = [];
     }
+    wait() {
+        let resolveSave;
+        return new Promise((resolve) => {
+            resolveSave = resolve;
+            this.on(resolveSave);
+        }).then((data) => {
+            this.off(resolveSave);
+            return data;
+        });
+    }
+    ;
 }
 exports.Onemitter = Onemitter;
 Object.defineProperty(exports, "__esModule", { value: true });

@@ -15,6 +15,16 @@ export class Onemitter<T> {
     public removeAllListeners() {
         this.listeners = [];
     }
+    public wait(): Promise<T> {
+        let resolveSave: (data: T) => void;
+        return new Promise((resolve) => {
+            resolveSave = resolve;
+            this.on(resolveSave);
+        }).then((data: T) => {
+            this.off(resolveSave);
+            return data;
+        });
+    };
 }
 export default <T>() => {
     return new Onemitter<T>();
