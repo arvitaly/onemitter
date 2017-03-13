@@ -1,5 +1,7 @@
 # onemitter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/arvitaly/onemitter.svg)](https://greenkeeper.io/)
+
 Most elementary emitter for one event
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
