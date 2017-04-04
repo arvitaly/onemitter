@@ -26,7 +26,5 @@
     "tslint": "^5.0.0",
     "typescript": "^2.2.2"
   },
-  "jest": {
-    "automock": false
-  }
+  "jest": {}
 }
