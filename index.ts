@@ -24,7 +24,7 @@ export class Onemitter<T> {
             this.off(resolveSave);
             return data;
         });
-    };
+    }
 }
 export default <T>() => {
     return new Onemitter<T>();

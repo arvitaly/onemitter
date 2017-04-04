@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const __1 = require("./..");
 describe("Onemitter spec", () => {
     it("when create onemitter, should has isOnemitter property with `true` value ", () => {

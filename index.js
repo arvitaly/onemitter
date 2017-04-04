@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Onemitter {
     constructor() {
         this.listeners = [];
@@ -28,10 +29,8 @@ class Onemitter {
             return data;
         });
     }
-    ;
 }
 exports.Onemitter = Onemitter;
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = () => {
     return new Onemitter();
 };

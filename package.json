@@ -20,11 +20,11 @@
   },
   "homepage": "https://github.com/arvitaly/onemitter#readme",
   "devDependencies": {
-    "@types/jest": "^16.0.1",
-    "coveralls": "^2.11.15",
-    "jest": "^17.0.3",
-    "tslint": "^4.0.2",
-    "typescript": "^2.1.4"
+    "@types/jest": "^19.2.2",
+    "coveralls": "^2.13.0",
+    "jest": "^19.0.2",
+    "tslint": "^5.0.0",
+    "typescript": "^2.2.2"
   },
   "jest": {
     "automock": false
