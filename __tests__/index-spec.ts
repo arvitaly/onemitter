@@ -1,8 +1,9 @@
 import onemitter, { Onemitter } from "./..";
 describe("Onemitter spec", () => {
     it("when create onemitter, should has isOnemitter property with `true` value ", () => {
-        const o1 = onemitter();
+        const o1 = onemitter("initialValue");
         expect(o1 instanceof Onemitter).toBeTruthy();
+        expect(o1.get()).toBe("initialValue");
     });
     it("when subscribe and set value should call callback-function", () => {
         const o1 = onemitter<string>();

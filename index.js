@@ -1,11 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Onemitter {
-    constructor() {
+    constructor(value) {
+        this.value = value;
         this.listeners = [];
     }
     emit(value) {
+        this.value = value;
         this.listeners.map((cb) => cb(value));
+    }
+    get() {
+        return this.value;
     }
     on(cb) {
         this.listeners.push(cb);
@@ -31,6 +36,6 @@ class Onemitter {
     }
 }
 exports.Onemitter = Onemitter;
-exports.default = () => {
-    return new Onemitter();
+exports.default = (initialValue) => {
+    return new Onemitter(initialValue);
 };

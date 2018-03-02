@@ -1,7 +1,12 @@
 export class Onemitter<T> {
     protected listeners: Array<(value: T) => any> = [];
+    constructor(protected value?: T) { }
     public emit(value: T) {
+        this.value = value;
         this.listeners.map((cb) => cb(value));
+    }
+    public get() {
+        return this.value;
     }
     public on(cb: (value: T) => any) {
         this.listeners.push(cb);
@@ -26,6 +31,6 @@ export class Onemitter<T> {
         });
     }
 }
-export default <T>() => {
-    return new Onemitter<T>();
+export default <T>(initialValue?: T) => {
+    return new Onemitter<T>(initialValue);
 };
