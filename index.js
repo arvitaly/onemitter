@@ -25,17 +25,16 @@ class Onemitter {
         this.listeners = [];
     }
     wait() {
-        let resolveSave;
+        const currentData = this.get();
+        if (typeof (currentData) !== "undefined") {
+            return Promise.resolve(currentData);
+        }
         return new Promise((resolve) => {
-            resolveSave = resolve;
-            const currentData = this.get();
-            if (typeof (currentData) !== "undefined") {
-                return currentData;
-            }
-            this.on(resolveSave);
-        }).then((data) => {
-            this.off(resolveSave);
-            return data;
+            const bindOn = (data) => {
+                resolve(data);
+                this.off(bindOn);
+            };
+            this.on(bindOn);
         });
     }
 }

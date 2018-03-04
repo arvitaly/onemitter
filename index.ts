@@ -21,17 +21,16 @@ export class Onemitter<T> {
         this.listeners = [];
     }
     public wait(): Promise<T> {
-        let resolveSave: (data: T) => void;
+        const currentData = this.get();
+        if (typeof (currentData) !== "undefined") {
+            return Promise.resolve(currentData);
+        }
         return new Promise((resolve) => {
-            resolveSave = resolve;
-            const currentData = this.get();
-            if (typeof (currentData) !== "undefined") {
-                return currentData;
-            }
-            this.on(resolveSave);
-        }).then((data: T) => {
-            this.off(resolveSave);
-            return data;
+            const bindOn = (data: T) => {
+                resolve(data);
+                this.off(bindOn);
+            };
+            this.on(bindOn);
         });
     }
 }
