@@ -24,6 +24,10 @@ export class Onemitter<T> {
         let resolveSave: (data: T) => void;
         return new Promise((resolve) => {
             resolveSave = resolve;
+            const currentData = this.get();
+            if (typeof (currentData) !== "undefined") {
+                return currentData;
+            }
             this.on(resolveSave);
         }).then((data: T) => {
             this.off(resolveSave);

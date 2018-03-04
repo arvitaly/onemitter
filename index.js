@@ -28,6 +28,10 @@ class Onemitter {
         let resolveSave;
         return new Promise((resolve) => {
             resolveSave = resolve;
+            const currentData = this.get();
+            if (typeof (currentData) !== "undefined") {
+                return currentData;
+            }
             this.on(resolveSave);
         }).then((data) => {
             this.off(resolveSave);
