@@ -1,3 +1,4 @@
+export { default as Container } from "./Container";
 export class Onemitter<T> {
     protected listeners: Array<(value: T) => any> = [];
     constructor(protected value?: T) { }

@@ -1,12 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const _1 = require("./");
-const Container_1 = require("./Container");
 const onemitter1 = _1.default();
 const cb1 = jest.fn();
 let container;
 beforeEach(() => {
-    container = new Container_1.default();
+    container = new _1.Container();
     cb1.mockClear();
 });
 it("add to onemitter container", () => {

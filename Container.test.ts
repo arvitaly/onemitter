@@ -1,5 +1,4 @@
-import o from "./";
-import Container from "./Container";
+import o, { Container } from "./";
 const onemitter1 = o();
 const cb1 = jest.fn();
 let container: Container;
