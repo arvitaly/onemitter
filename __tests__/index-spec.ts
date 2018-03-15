@@ -37,4 +37,12 @@ describe("Onemitter spec", () => {
         });
         o1.emit("test15");
     });
+    it("empty initedValue", (done) => {
+        const o1 = onemitter();
+        o1.wait().then((data) => {
+            expect(data).toBe("test2");
+            done();
+        });
+        o1.emit("test2");
+    });
 });

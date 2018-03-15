@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Container_1 = require("./Container");
 exports.Container = Container_1.default;
 class Onemitter {
-    constructor(store = {}) {
-        this.store = store;
+    constructor(config = {}) {
         this.isValueExisting = false;
         this.listeners = [];
+        this.store = Object.assign({}, config);
     }
     emit(value) {
         this.store.value = value;
@@ -41,6 +41,6 @@ class Onemitter {
     }
 }
 exports.Onemitter = Onemitter;
-exports.default = (initialValue) => {
-    return new Onemitter(initialValue);
+exports.default = (config) => {
+    return new Onemitter(config);
 };

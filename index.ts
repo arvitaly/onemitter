@@ -2,7 +2,9 @@ export { default as Container } from "./Container";
 export class Onemitter<T> {
     protected isValueExisting = false;
     protected listeners: Array<(value: T) => any> = [];
-    constructor(protected store: { value?: T } = {}) {
+    protected store: { value?: T };
+    constructor(config: { value?: T } = {}) {
+        this.store = { ...config };
     }
     public emit(value: T) {
         this.store.value = value;
@@ -36,6 +38,6 @@ export class Onemitter<T> {
         });
     }
 }
-export default <T>(initialValue?: T) => {
-    return new Onemitter<T>(initialValue);
+export default <T>(config?: { value?: T }) => {
+    return new Onemitter<T>(config);
 };
