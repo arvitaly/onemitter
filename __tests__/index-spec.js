@@ -39,12 +39,20 @@ describe("Onemitter spec", () => {
         });
         o1.emit("test15");
     });
-    it("empty initedValue", (done) => {
+    it("has, expect `false` when not have value", () => {
+        const o1 = __1.default({});
+        expect(o1.has()).toBe(false);
+    });
+    it("has, expect `true` when have value", () => {
+        const o1 = __1.default({ value: "test" });
+        expect(o1.has()).toBe(true);
+    });
+    it("get, throw error when not have value", () => {
         const o1 = __1.default();
-        o1.wait().then((data) => {
-            expect(data).toBe("test2");
-            done();
-        });
-        o1.emit("test2");
+        expect(o1.get.bind(o1)).toThrowError("Not have value");
+    });
+    it("get, return value when have value", () => {
+        const o1 = __1.default({ value: "test" });
+        expect(o1.get()).toBe("test");
     });
 });

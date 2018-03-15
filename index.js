@@ -13,7 +13,13 @@ class Onemitter {
         this.listeners.map((cb) => cb(value));
     }
     get() {
+        if (!("value" in this.store)) {
+            throw new Error("Not have value");
+        }
         return this.store.value;
+    }
+    has() {
+        return "value" in this.store;
     }
     on(cb) {
         this.listeners.push(cb);
