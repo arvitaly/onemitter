@@ -3,16 +3,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Container_1 = require("./Container");
 exports.Container = Container_1.default;
 class Onemitter {
-    constructor(value) {
-        this.value = value;
+    constructor(store = {}) {
+        this.store = store;
+        this.isValueExisting = false;
         this.listeners = [];
     }
     emit(value) {
-        this.value = value;
+        this.store.value = value;
         this.listeners.map((cb) => cb(value));
     }
     get() {
-        return this.value;
+        return this.store.value;
     }
     on(cb) {
         this.listeners.push(cb);
@@ -27,9 +28,8 @@ class Onemitter {
         this.listeners = [];
     }
     wait() {
-        const currentData = this.get();
-        if (typeof (currentData) !== "undefined") {
-            return Promise.resolve(currentData);
+        if ("value" in this.store) {
+            return Promise.resolve(this.store.value);
         }
         return new Promise((resolve) => {
             const bindOn = (data) => {

@@ -1,13 +1,15 @@
 export { default as Container } from "./Container";
 export class Onemitter<T> {
+    protected isValueExisting = false;
     protected listeners: Array<(value: T) => any> = [];
-    constructor(protected value?: T) { }
+    constructor(protected store: { value?: T } = {}) {
+    }
     public emit(value: T) {
-        this.value = value;
+        this.store.value = value;
         this.listeners.map((cb) => cb(value));
     }
     public get() {
-        return this.value;
+        return this.store.value;
     }
     public on(cb: (value: T) => any) {
         this.listeners.push(cb);
@@ -22,9 +24,8 @@ export class Onemitter<T> {
         this.listeners = [];
     }
     public wait(): Promise<T> {
-        const currentData = this.get();
-        if (typeof (currentData) !== "undefined") {
-            return Promise.resolve(currentData);
+        if ("value" in this.store) {
+            return Promise.resolve(this.store.value as T);
         }
         return new Promise((resolve) => {
             const bindOn = (data: T) => {

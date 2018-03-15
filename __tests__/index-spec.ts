@@ -1,7 +1,7 @@
 import onemitter, { Onemitter } from "./..";
 describe("Onemitter spec", () => {
     it("when create onemitter, should has isOnemitter property with `true` value ", () => {
-        const o1 = onemitter("initialValue");
+        const o1 = onemitter({ value: "initialValue" });
         expect(o1 instanceof Onemitter).toBeTruthy();
         expect(o1.get()).toBe("initialValue");
     });

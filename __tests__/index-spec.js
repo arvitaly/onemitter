@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const __1 = require("./..");
 describe("Onemitter spec", () => {
     it("when create onemitter, should has isOnemitter property with `true` value ", () => {
-        const o1 = __1.default("initialValue");
+        const o1 = __1.default({ value: "initialValue" });
         expect(o1 instanceof __1.Onemitter).toBeTruthy();
         expect(o1.get()).toBe("initialValue");
     });
