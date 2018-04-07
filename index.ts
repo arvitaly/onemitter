@@ -22,6 +22,12 @@ export class Onemitter<T> {
     public on(cb: (value: T) => any) {
         this.listeners.push(cb);
     }
+    public onAndGet(cb: (value: T) => any) {
+        this.listeners.push(cb);
+        if ("value" in this.store) {
+            cb(this.store.value as any);
+        }
+    }
     public off(cb: (value: T) => any) {
         this.listeners = this.listeners.filter((c) => c !== cb);
     }

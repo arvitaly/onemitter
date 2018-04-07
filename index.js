@@ -24,6 +24,12 @@ class Onemitter {
     on(cb) {
         this.listeners.push(cb);
     }
+    onAndGet(cb) {
+        this.listeners.push(cb);
+        if ("value" in this.store) {
+            cb(this.store.value);
+        }
+    }
     off(cb) {
         this.listeners = this.listeners.filter((c) => c !== cb);
     }

@@ -53,4 +53,17 @@ describe("Onemitter spec", () => {
         const o1 = onemitter({ value: "test" });
         expect(o1.get()).toBe("test");
     });
+
+    it("onAndGet should call immediately if value existing", () => {
+        const o1 = onemitter({ value: "test" });
+        const cb = jest.fn();
+        o1.onAndGet(cb);
+        expect(cb.mock.calls).toEqual([["test"]]);
+    });
+    it("onAndGet should not call immediately if value not existing", () => {
+        const o1 = onemitter();
+        const cb = jest.fn();
+        o1.onAndGet(cb);
+        expect(cb.mock.calls.length).toBe(0);
+    });
 });
