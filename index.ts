@@ -10,11 +10,11 @@ export class Onemitter<T> {
         this.store.value = value;
         this.listeners.map((cb) => cb(value));
     }
-    public get() {
+    public get(): T {
         if (!("value" in this.store)) {
             throw new Error("Not have value");
         }
-        return this.store.value;
+        return this.store.value as T;
     }
     public has() {
         return "value" in this.store;
